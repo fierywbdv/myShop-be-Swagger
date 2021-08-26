@@ -24,7 +24,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200"
+                $ref: "#/components/schemas/Returns_a_product_by_ID"
         "404":
           description: Product not found
       x-swagger-router-controller: Default
@@ -38,11 +38,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/inline_response_200_1"
+                $ref: "#/components/schemas/Returns_all_products"
       x-swagger-router-controller: Default
 components:
   schemas:
-    inline_response_200:
+    Returns_a_product_by_ID:
       type: object
       properties:
         id:
@@ -61,7 +61,7 @@ components:
         description: description
         price: 0
         img: img
-    inline_response_200_1:
+    Returns_all_products:
       type: object
       properties:
         productList:
