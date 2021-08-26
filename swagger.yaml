@@ -1,12 +1,13 @@
----
 openapi: 3.0.0
 info:
   title: Store products
   description: AWS Product Service
   version: "1.0"
 servers:
-  description: SwaggerHub API
+- url: https://virtserver.swaggerhub.com/GoldenkovVitali/StoreAPI/1.0
+  description: SwaggerHub API Auto Mocking
 - url: https://r710wes8q3.execute-api.eu-west-1.amazonaws.com/dev
+  description: SwaggerHub API
 paths:
   /products/{Id}:
     get:
