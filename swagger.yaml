@@ -2,33 +2,29 @@ openapi: 3.0.0
 info:
   title: Store products
   description: AWS Product Service
-  version: "1.0"
 servers:
-- url: https://virtserver.swaggerhub.com/GoldenkovVitali/StoreAPI/1.0
-  description: SwaggerHub API Auto Mocking
-- url: https://r710wes8q3.execute-api.eu-west-1.amazonaws.com/dev
-  description: SwaggerHub API
+  - url: https://r710wes8q3.execute-api.eu-west-1.amazonaws.com/dev
 paths:
   /products/{Id}:
     get:
       summary: Returns a product by ID
       operationId: productsIdGET
       parameters:
-      - name: Id
-        in: path
-        description: The ID of the product to return (id = 1-5)
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
+        - name: Id
+          in: path
+          description: The ID of the product to return (id = 1-5)
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: "#/components/schemas/inline_response_200"
         "404":
           description: Product not found
       x-swagger-router-controller: Default
@@ -42,7 +38,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200_1'
+                $ref: "#/components/schemas/inline_response_200_1"
       x-swagger-router-controller: Default
 components:
   schemas:
@@ -60,11 +56,11 @@ components:
         img:
           type: string
       example:
-        img: img
-        price: 0
-        description: description
         id: id
         title: title
+        description: description
+        price: 0
+        img: img
     inline_response_200_1:
       type: object
       properties:
@@ -84,20 +80,15 @@ components:
               img:
                 type: string
             example:
-              img: img
-              price: 0
-              description: description
               id: id
               title: title
+              description: description
+              price: 0
+              img: img
       example:
         productList:
-        - img: img
-          price: 0
-          description: description
-          id: id
-          title: title
-        - img: img
-          price: 0
-          description: description
-          id: id
-          title: title
+          - id: id
+            title: title
+            description: description
+            price: 0
+            img: img
