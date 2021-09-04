@@ -45,26 +45,22 @@ paths:
         - post product
       summary: Add a new product to the shop
       operationId: addProduct
-      consumes:
-        - application/json
-        - application/xml
-      produces:
-        - application/json
-        - application/xml
       parameters:
         - in: body
           name: body
           description: Product object that needs to be added to the shop
           required: true
-          responses:
-          "200":
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/Add_product_to_the_shop"
-          "404":
-            description: Invalid input data!
+          schema:
+            $ref: "#/components/schemas/Add_product_to_the_shop"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Add_product_to_the_shop"
+        "404":
+          description: Invalid input data!
 
 components:
   schemas:
@@ -118,25 +114,26 @@ components:
             description: description
             price: 0
             img: img
-
     Add_product_to_the_shop:
       type: object
-    required:
-      - title
-      - description
-      - price
-      - img
-    properties:
-      title:
-        type: string
-      description:
-        type: string
-      price:
-        type: integer
-      img:
-        type: string
-    example:
-      title: Fire extinguisher OP-1
-      description: Powder fire extinguishers are intended for the protection of industrial and economic premises
-      price: 100
-      img: https://vitalik-first-rs-app.s3.eu-west-1.amazonaws.com/1.jpeg
+      required:
+        - title
+        - description
+        - price
+        - img
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: integer
+        img:
+          type: string
+      example:
+        title: Fire extinguisher OP-1
+        description: Powder fire extinguishers are intended for the protection of industrial and economic premises
+        price: 100
+        img: https://vitalik-first-rs-app.s3.eu-west-1.amazonaws.com/1.jpeg
+      xml:
+        name: Add_product_to_the_shop
