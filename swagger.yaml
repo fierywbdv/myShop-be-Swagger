@@ -1,5 +1,6 @@
 openapi: 3.0.0
 info:
+  version: 1.0.0
   title: Store products
   description: AWS Product Service
 servers:
@@ -45,13 +46,13 @@ paths:
         - post product
       summary: Add a new product to the shop
       operationId: addProduct
-      parameters:
-        - in: body
-          name: body
+      requestBody:
           description: Product object that needs to be added to the shop
           required: true
-          schema:
-            $ref: "#/components/schemas/Add_product_to_the_shop"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Add_product_to_the_shop"
       responses:
         "200":
           description: OK
