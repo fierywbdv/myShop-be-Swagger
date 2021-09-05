@@ -13,7 +13,7 @@ paths:
       parameters:
         - name: Id
           in: path
-          description: The ID of the product to return (id = 1-5)
+          description: The ID of the product to return (id = e14f0d0e-d1ce-4dcf-bd70-db65d881bb20)
           required: true
           style: simple
           explode: false
